@@ -11,5 +11,5 @@
 #import "NUIRenderer.h"
 
 @interface UIToolbar (NUI)
-
+- (void)override_UIToolbar_didMoveToWindow;
 @end

@@ -12,4 +12,6 @@
 
 @interface UISegmentedControl (NUI)
 
+- (void)override_UISegmentedControl_didMoveToWindow;
+
 @end

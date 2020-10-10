@@ -13,5 +13,7 @@
 @interface UITableViewCell (NUI)
 
 - (void)orientationDidChange:(NSNotification*)notification;
+- (void)override_UITableViewCell_didMoveToWindow;
+- (void)override_UITableViewCell_dealloc;
 
 @end

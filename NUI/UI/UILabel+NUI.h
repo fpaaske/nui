@@ -12,4 +12,6 @@
 
 @interface UILabel (NUI)
 
+- (void)override_UILabel_didMoveToWindow;
+
 @end

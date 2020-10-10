@@ -12,4 +12,6 @@
 
 @interface UIProgressView (NUI)
 
+- (void)override_UIProgressView_didMoveToWindow;
+
 @end

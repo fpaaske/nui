@@ -28,12 +28,12 @@
     self.nuiApplied = YES;
 }
 
-- (void)override_didMoveToWindow
+- (void)override_UINavigationItem_didMoveToWindow
 {
     if (!self.isNUIApplied) {
         [self applyNUI];
     }
-    [self override_didMoveToWindow];
+    [self override_UINavigationItem_didMoveToWindow];
 }
 
 - (void)setNuiClass:(NSString*)value {
