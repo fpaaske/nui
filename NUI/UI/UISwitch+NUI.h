@@ -12,4 +12,5 @@
 
 @interface UISwitch (NUI)
 
+- (void)override_UISwitch_didMoveToWindow;
 @end

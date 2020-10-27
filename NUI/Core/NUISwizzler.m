@@ -12,57 +12,51 @@
 
 - (void)swizzleAll
 {
-    [self swizzleDidMoveToWindow:[UIActivityIndicatorView class]];
-    [self swizzleDidMoveToWindow:[UIBarButtonItem class]];
-    [self swizzleDidMoveToWindow:[UIButton class]];
-    [self swizzleDidMoveToWindow:[UILabel class]];
-    [self swizzleDidMoveToWindow:[UINavigationBar class]];
-    [self swizzleDidMoveToWindow:[UINavigationItem class]];
-    [self swizzleDidMoveToWindow:[UIProgressView class]];
-    [self swizzleDidMoveToWindow:[UISearchBar class]];
-    [self swizzleDidMoveToWindow:[UISegmentedControl class]];
-    [self swizzleDidMoveToWindow:[UISlider class]];
-    [self swizzleDidMoveToWindow:[UISwitch class]];
-    [self swizzleDidMoveToWindow:[UITabBar class]];
-    [self swizzleDidMoveToWindow:[UITableViewCell class]];
-    [self swizzleDidMoveToWindow:[UITextField class]];
-    [self swizzleDidMoveToWindow:[UITextView class]];
-    [self swizzleDidMoveToWindow:[UIToolbar class]];
-    [self swizzleDidMoveToWindow:[UIPageControl class]];
-    [self swizzleDidMoveToWindow:[UIControl class]];
-    [self swizzleDidMoveToWindow:[UIView class]];
-  
-    [self swizzle:[UITextField class] methodName:@"textRectForBounds:"];
-    [self swizzle:[UITextField class] methodName:@"editingRectForBounds:"];
-    [self swizzle:[UIWindow class] methodName:@"becomeKeyWindow"];
-    
-    [self swizzle:[UILabel class] methodName:@"setText:"];
-    [self swizzle:[UIButton class] methodName:@"setTitle:forState:"];
-    
-    if ((NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_6_0)) {
-        [self swizzle:[UILabel class] methodName:@"setAttributedText:"];
-        [self swizzle:[UIButton class] methodName:@"setAttributedTitle:forState:"];
+    [self swizzle:[UIBarButtonItem class] fromMethodName:@"didMoveToWindow" toMethodName:nil];
+    [self swizzle:[UIButton class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UIButton_didMoveToWindow))];
+    [self swizzle:[UILabel class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UILabel_didMoveToWindow))];
+    [self swizzle:[UINavigationBar class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UINavigationBar_didMoveToWindow))];
+    [self swizzle:[UINavigationItem class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UINavigationItem_didMoveToWindow))];
+    [self swizzle:[UIProgressView class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UIProgressView_didMoveToWindow))];
+    [self swizzle:[UISearchBar class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UISearchBar_didMoveToWindow))];
+    [self swizzle:[UISegmentedControl class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UISegmentedControl_didMoveToWindow))];
+    [self swizzle:[UISlider class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UISlider_didMoveToWindow))];
+    [self swizzle:[UISwitch class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UISwitch_didMoveToWindow))];
+    [self swizzle:[UITabBar class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UITabBar_didMoveToWindow))];
+    [self swizzle:[UITableViewCell class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UITableViewCell_didMoveToWindow))];
+    [self swizzle:[UITextField class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UITextField_didMoveToWindow))];
+    [self swizzle:[UITextView class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UITextView_didMoveToWindow))];
+    [self swizzle:[UIToolbar class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UIToolbar_didMoveToWindow))];
+    [self swizzle:[UIControl class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UIControl_didMoveToWindow))];
+    [self swizzle:[UIView class] fromMethodName:@"didMoveToWindow" toMethodName:NSStringFromSelector(@selector(override_UIView_didMoveToWindow))];
+
+    [self swizzle:[UITextField class] fromMethodName:@"textRectForBounds:" toMethodName:nil];
+    [self swizzle:[UITextField class] fromMethodName:@"editingRectForBounds:" toMethodName:nil];
+    [self swizzle:[UIWindow class] fromMethodName:@"becomeKeyWindow" toMethodName:nil];
+
+    [self swizzle:[UILabel class] fromMethodName:@"setText:" toMethodName:nil];
+    [self swizzle:[UIButton class] fromMethodName:@"setTitle:forState:" toMethodName:nil];
+
+    if ((NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_6_0))
+    {
+        [self swizzle:[UILabel class] fromMethodName:@"setAttributedText:" toMethodName:nil];
+        [self swizzle:[UIButton class] fromMethodName:@"setAttributedTitle:forState:" toMethodName:nil];
     }
-    
-    [self swizzleDealloc:[UINavigationBar class]];
-    [self swizzleDealloc:[UITabBar class]];
-    [self swizzleDealloc:[UITableViewCell class]];
-    [self swizzleDealloc:[UITableView class]];
+
+    [self swizzle:[UINavigationBar class] fromMethodName:@"dealloc" toMethodName:NSStringFromSelector(@selector(override_UINavigationBar_dealloc))];
+    [self swizzle:[UITabBar class] fromMethodName:@"dealloc" toMethodName:NSStringFromSelector(@selector(override_UITabBar_dealloc))];
+    [self swizzle:[UITableViewCell class] fromMethodName:@"dealloc" toMethodName:NSStringFromSelector(@selector(override_UITableViewCell_dealloc))];
+    [self swizzle:[UITableView class] fromMethodName:@"dealloc" toMethodName:NSStringFromSelector(@selector(override_UITableView_dealloc))];
 }
 
-- (void)swizzleDidMoveToWindow:(Class)class
+- (void)swizzle:(Class)class fromMethodName:(NSString *)fromMethodName toMethodName:(NSString *)toMethodName
 {
-    [self swizzle:class methodName:@"didMoveToWindow"];
-}
-
-- (void)swizzleDealloc:(Class)class {
-    [self swizzle:class methodName:@"dealloc"];
-}
-
-- (void)swizzle:(Class)class methodName:(NSString*)methodName
-{
-    SEL originalMethod = NSSelectorFromString(methodName);
-    SEL newMethod = NSSelectorFromString([NSString stringWithFormat:@"%@%@", @"override_", methodName]);
+    SEL originalMethod = NSSelectorFromString(fromMethodName);
+    SEL newMethod;
+    if (toMethodName == nil)
+        newMethod = NSSelectorFromString([NSString stringWithFormat:@"%@%@", @"override_", fromMethodName]);
+    else
+        newMethod = NSSelectorFromString(toMethodName);
     [self swizzle:class from:originalMethod to:newMethod];
 }
 

@@ -12,4 +12,6 @@
 
 @interface UIControl (NUI)
 
+- (void)override_UIControl_didMoveToWindow;
+
 @end

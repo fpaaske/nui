@@ -13,5 +13,6 @@
 @interface UITableView (NUI)
 
 - (void)orientationDidChange:(NSNotification*)notification;
+- (void)override_UITableView_dealloc;
 
 @end

@@ -12,4 +12,6 @@
 
 @interface UISlider (NUI)
 
+- (void)override_UISlider_didMoveToWindow;
+
 @end

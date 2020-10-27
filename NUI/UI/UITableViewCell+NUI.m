@@ -27,17 +27,17 @@
     self.nuiApplied = YES;
 }
 
-- (void)override_didMoveToWindow
+- (void)override_UITableViewCell_didMoveToWindow
 {
     if (!self.isNUIApplied) {
         [self applyNUI];
     }
-    [self override_didMoveToWindow];
+    [self override_UITableViewCell_didMoveToWindow];
 }
 
-- (void)override_dealloc {
+- (void)override_UITableViewCell_dealloc {
     [NUIRenderer removeOrientationDidChangeObserver:self];
-    [self override_dealloc];
+    [self override_UITableViewCell_dealloc];
 }
 
 - (void)orientationDidChange:(NSNotification*)notification

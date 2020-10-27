@@ -13,5 +13,7 @@
 @interface UITabBar (NUI)
 
 - (void)orientationDidChange:(NSNotification*)notification;
+- (void)override_UITabBar_didMoveToWindow;
+- (void)override_UITabBar_dealloc;
 
 @end

@@ -46,12 +46,12 @@
         [self setText:[self text]];
 }
 
-- (void)override_didMoveToWindow
+- (void)override_UILabel_didMoveToWindow
 {
     if (!self.isNUIApplied) {
         [self applyNUI];
     }
-    [self override_didMoveToWindow];
+    [self override_UILabel_didMoveToWindow];
 }
 
 - (void)override_setText:(NSString *)text

@@ -73,12 +73,12 @@
     }
 }
 
-- (void)override_didMoveToWindow
+- (void)override_UIButton_didMoveToWindow
 {
     if (!self.isNUIApplied) {
         [self applyNUI];
     }
-    [self override_didMoveToWindow];
+    [self override_UIButton_didMoveToWindow];
 }
 
 - (void)override_setTitle:(NSString *)title forState:(UIControlState)state
