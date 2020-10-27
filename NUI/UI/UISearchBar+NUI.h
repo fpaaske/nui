@@ -12,4 +12,6 @@
 
 @interface UISearchBar (NUI)
 
+- (void)override_UISearchBar_didMoveToWindow;
+
 @end

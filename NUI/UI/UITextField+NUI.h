@@ -11,5 +11,5 @@
 #import "NUIRenderer.h"
 
 @interface UITextField (NUI)
-
+- (void)override_UITextField_didMoveToWindow;
 @end

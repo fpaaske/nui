@@ -26,12 +26,12 @@
     self.nuiApplied = YES;
 }
 
-- (void)override_didMoveToWindow
+- (void)override_UISegmentedControl_didMoveToWindow
 {
     if (!self.isNUIApplied) {
         [self applyNUI];
     }
-    [self override_didMoveToWindow];
+    [self override_UISegmentedControl_didMoveToWindow];
 }
 
 @end

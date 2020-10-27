@@ -13,5 +13,7 @@
 @interface UINavigationBar (NUI)
 
 - (void)orientationDidChange:(NSNotification*)notification;
+- (void)override_UINavigationBar_didMoveToWindow;
+- (void)override_UINavigationBar_dealloc;
 
 @end

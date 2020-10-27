@@ -12,5 +12,8 @@
 
 @interface UIButton (NUI)
 @property (nonatomic, retain) CALayer* gradientLayer;
+
+- (void)override_UIButton_didMoveToWindow;
+
 @end
 

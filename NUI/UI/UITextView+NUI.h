@@ -3,5 +3,5 @@
 #import "NUIRenderer.h"
 
 @interface UITextView (NUI)
-
+- (void)override_UITextView_didMoveToWindow;
 @end
